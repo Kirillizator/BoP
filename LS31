@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<script>
+	var a=parseInt(prompt('Введите a'));
+	var b=parseInt(prompt('Введите b'));
+	var c=parseInt(prompt('Введите c'));
+	// Нахождение максимального из трех чисел
+	if (a>b && a>c)
+	{
+		alert(a);
+	}
+	else
+	{
+		if (b>a && b>c)
+		{
+			alert(b);
+		}
+		else
+		{
+			alert(c);
+		}
+	}
+</script>

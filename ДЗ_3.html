@@ -1,0 +1,64 @@
+<meta charset="utf-8">
+<script>
+	var num1=+prompt('a'); var num2=+prompt('b'); var num3=+prompt('d');
+	var num4=+prompt('e'); var num5=+prompt('f'); var num6=+prompt('g');
+	var num7=+prompt('h'); var num8=+prompt('i'); var num9=+prompt('j');
+
+	function M(a, b, c)
+	{
+		if (a>b&&a>c)
+		{
+			max=a;
+			if (c>b)
+			{
+				min=b;
+			}
+			else
+			{
+				min=c;
+			}
+		}
+		else
+		{
+			if (b>c&&b>a)
+			{
+				max=b;
+				if (a>c)
+				{
+					min=c;
+				}
+				else
+				{
+					min=a;
+				}
+			}
+			else
+			{
+				max=c;
+				{
+					if (a>b)
+					{
+						min=b;
+					}
+					else
+					{
+						min=a;
+					}
+				}
+			}
+		}
+	
+	var res=(max/min);
+	return(res);
+	}
+
+	var RES1=M(num1, num2, num3);
+	var RES2=M(num4, num5, num6);
+	var RES3=M(num7, num8, num9);
+	alert('res1='+RES1+'; res2='+RES2+'; res3='+RES3);
+
+
+
+
+
+</script>

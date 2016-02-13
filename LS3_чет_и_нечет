@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<script>
+   
+	var x=+prompt('чмсло');
+
+   function quest(x)
+   {
+   	if (x%2==0) 
+   		{alert("chetnoe");} 
+   	else {alert("nechetnoe");}
+   }
+</script>

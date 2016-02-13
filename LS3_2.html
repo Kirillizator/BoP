@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<script>
+	var a1=parseInt(prompt('Введите a1')); var b1=parseInt(prompt('Введите b1')); var c1=parseInt(prompt('Введите c1'));
+	var a2=parseInt(prompt('Введите a2')); var b2=parseInt(prompt('Введите b2')); var c2=parseInt(prompt('Введите c2'));
+	var a3=parseInt(prompt('Введите a3')); var b3=parseInt(prompt('Введите b3')); var c3=parseInt(prompt('Введите c3'));
+	var res;
+
+	function Max(a, b, c)
+	{
+		if (a>b && a>c)
+		{
+			return a;
+		}
+		else
+		{
+			if (b>a && b>c)
+			{
+				return b;
+			}
+			else
+			{
+				return c;
+			}
+		}
+	}
+
+	var res1=Max(a1, b1, c1);
+	var res2=Max(a2, b2, c2);
+	var res3=Max(a3, b3, c3);
+	var Result=Max(res1, res2, res3);
+	alert(Result);
+</script>

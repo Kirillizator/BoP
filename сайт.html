@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Первая страница</title>
+		<script>
+			function Even(x)
+			{
+				x=parseInt(x);
+				return(x%2==0 ? "Чётное":"Нечётное");
+			}
+		</script>
+	</head>
+
+	<body bgcolor="black">
+		<p align="center">
+		<input type="text" id="txtIn" value=""
+		style="color:darkblue"/><br>
+		<input type="button" value="Жми меня))"
+		onClick="txtOut.value=Even(txtIn.value)" /><br>
+		<input type="type" id="txtOut"
+		style="color:red"/>
+		</p>
+	</body>
+</html>

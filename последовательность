@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<script>
+   
+	alert('Подсчет самой большой последовательности выпадения красного');
+	var r=parseInt(prompt('Введите количество бросков'));
+	var M=[];
+	var a=0; var b=0;
+
+	for (var i=0; i<=r; i++)
+	{
+		M.push(Math.round(Math.random()*2));
+	}
+	alert(M);
+	for (i=0; i<M.length; i++)
+	{
+		if (M[i]==2)
+		{
+			a++;
+		}
+		else
+		{
+			if (b<a)
+			{
+				b=a;
+				a=0;
+			}
+		}
+	}
+	alert('Максимальная последовательность красных = '+b);
+
+</script>

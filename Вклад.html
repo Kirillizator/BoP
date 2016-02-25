@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<script>
+	alert('Программа подсчета процентов по вкладу');
+	var Sum=parseInt(prompt('Введите сумму вклада'));
+	var Per=parseInt(prompt('Введите годовой процент'));
+	var Y=parseInt(prompt('Введите срок депозита'));
+	for (var i=1; i <= Y; i++)
+	{
+		Sum=Sum+(Sum*(Per/100));
+		alert('Год:'+i+'Сумма на счету'+Sum);
+	}
+	alert('ИТОГО на счету за'+i+'лет'+Sum)
+</script>

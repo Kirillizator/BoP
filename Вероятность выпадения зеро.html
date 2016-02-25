@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<script>
+	var arr=[];
+	var round=parseInt(prompt('Введите количество раундов'));
+	var zero=0;
+	var i=0;
+	for (i=0; i<=round; i++)
+	{
+		arr.push(Math.round(Math.random()*36));
+	}
+	alert(arr);
+	for (i=0; i<arr.length; i++)
+	{
+		if (arr[i] == 0)
+		{
+			zero++;
+		}
+	}
+	alert('Количество выпавших ЗЕРО = '+zero);
+	alert('Вероятность выпадения ЗЕРО = '+zero/arr.length*100+'%');
+</script>

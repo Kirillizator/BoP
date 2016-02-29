@@ -13,14 +13,32 @@
 
 	function getSum(M)
 	{
-		//
-		return M.length;
+		var sum=0;
+		for (var i=0; i<M.length; i++)
+		{
+			if ((M[i]=='J')||(M[i]=='Q')||(M[i]=='K'))
+			{
+				sum=sum+10;
+			}
+			else 
+			{
+				if (M[i]=='A')
+				{
+					sum=sum+11;
+				}
+				else
+				{
+					sum=sum+1;
+				}
+			}
+		}
+		return sum;
 	}
 
 	var dealer=[getCard()];
 	var player=[getCard(), getCard()];
 	
-	alert('Дилер: ' + dealer.join(' ') +'Игрок: '+player.join(' '));
+	alert('Дилер: ' + dealer.join('-') +'Игрок: '+player.join('-'));
 	alert('Текущая сумма карт у игрока: '+getSum(player));
 	
 

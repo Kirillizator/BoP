@@ -1,45 +1,80 @@
 <meta charset='utf-8'>
 <script>
-	function getRandomInt(min, max)
-	{
+	function getRandomInt(min, max) {
 		return Math.floor(Math.random()*(max-min+1))+min
 	}
-
-	function getCard()
-	{
-		var cards=['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+	function getCard() {
+		var cards=['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 		return cards[getRandomInt(0, cards.length-1)];
 	}
-
-	function getSum(M)
-	{
+	function getSum(M) {
 		var sum=0;
-		for (var i=0; i<M.length; i++)
-		{
-			if ((M[i]=='J')||(M[i]=='Q')||(M[i]=='K'))
-			{
-				sum=sum+10;
+		for (var i=0; i<M.length; i++) {
+			var card=M[i];
+			if (M[i]!='A') {
+				if ((M[i]=='J')||(M[i]=='Q')||(M[i]=='K')) {sum=sum+10;}
+				else {sum+=parseInt(card);}
 			}
-			else 
+		}
+		for (var i=0; i<M.length; i++) {
+			var card=M[i];
+			if (M[i]=='A')
 			{
-				if (M[i]=='A')
-				{
-					sum=sum+11;
-				}
-				else
-				{
-					sum=sum+1;
-				}
+				if (sum>10) {sum+=1;}
+				else {sum+=11;}
 			}
 		}
 		return sum;
 	}
-
+	function getStatus() {
+		return 'Дилер: '+dealer.join(' ')+', '+'Игрок: '+player.join(' ');
+	}
 	var dealer=[getCard()];
 	var player=[getCard(), getCard()];
-	
-	alert('Дилер: ' + dealer.join('-') +'Игрок: '+player.join('-'));
-	alert('Текущая сумма карт у игрока: '+getSum(player));
-	
-
+	if (getSum(player)==21) {
+		alert('!!!BLACK JACK на раздаче!!! $$$$$$$$$$$$');
+	}
+	else {
+		var answer='';
+		do {
+			answer = prompt(getStatus()+'. Хотите взять ещё одну карту? 1 - ДА, иначе - НЕТ');
+			if (answer == '1') {
+				player.push(getCard());
+			
+				sum=getSum(player);
+				if (sum>21) {
+					alert('ПЕРЕБОР  '+getStatus());
+					break;
+				}
+				else if (sum==21) {
+					alert('!!!BLACK JACK!!!  '+getStatus());
+					break;
+				}
+			}
+			else {
+					while (getSum(dealer)<17) {
+						dealer.push(getCard());
+					}
+					var sumDealer = getSum(dealer);
+					var sumPlayer = getSum(player);
+					if (sumDealer == 21) {
+						alert('У дилера Black Jack!  '+getStatus());
+					}
+					else if (sumDealer>21) {
+						alert('У дилера перебор!   '+getStatus());
+					}
+					else if (sumPlayer == sumDealer) {
+						alert('Ничья   '+getStatus());
+					}
+					else if (sumPlayer > sumDealer) {
+						alert('Выигрыш   '+getStatus());
+					}
+					else {
+						alert('Проигрыш   '+getStatus());
+					}
+			}
+		}
+		while (answer == '1');
+	}
+	alert('Текущая сумма карт диллера: '+getSum(dealer)+', игрока: '+getSum(player));
 </script>
